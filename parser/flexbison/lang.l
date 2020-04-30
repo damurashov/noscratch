@@ -1,5 +1,7 @@
 %{
   #include <iostream>
+  #include "lang.tab.h"
+
   using namespace std;
   extern int yylex();
   int linenum=0;
@@ -11,10 +13,18 @@
 %%
 [ \t]                         ; /* Ignore spaces, tabs */
 \n                            { ++linenum; }
-\".*\"                        { /* We've got string */ }
-[a-zA-Z_]+[a-zA-Z0-9_]*\".*\" { /* We've got regex */ }   
+\".*\"                        { yylval.regex = strdup(yytext); return STRING;  }
+[a-zA-Z_]+[a-zA-Z0-9_]*\".*\" { yylval.string = strdup(yytext); return REGEX;  }   
 %%
 int main(int, char**) {
-  // lex through the input:
+  // lex through the input  
+  FILE *myfile = fopen("a.snazzle.file", "r");
+  // make sure it's valid:
+  if (!myfile) {
+    cout << "I can't open a.snazzle.file!" << endl;
+    return -1;
+  }
+  // set lex to read from it instead of defaulting to STDIN:
+  yyin = myfile;
   while (yylex());
 }

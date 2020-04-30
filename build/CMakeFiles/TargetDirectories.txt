@@ -1,0 +1,2 @@
+/home/sleeplynerd/Documents/StackParser/src/build/CMakeFiles/rebuild_cache.dir
+/home/sleeplynerd/Documents/StackParser/src/build/CMakeFiles/edit_cache.dir
