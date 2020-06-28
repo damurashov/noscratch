@@ -1,6 +1,3 @@
-file(MAKE_DIRECTORY build)
+cmake_minimum_required(VERSION 3.0)
 
-project(parser)
-file(MAKE_DIRECTORY build/parser)
-configure_file(src/parser/* build/parser COPYONLY)
-configure_file(src/parser/flex)
+add_subdirectory(parser)

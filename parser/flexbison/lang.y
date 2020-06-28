@@ -7,25 +7,29 @@
   extern int yylex();
   extern int yyparse();
   extern FILE *yyin;
- 
+
   void yyerror(const char *s);
 %}
 
 %union {
-    char* regex;
-    char* string;
+  char* regex;
+  char* string;
 }
 
 %token <regex>  REGEX
 %token <string> STRING
+
 %%
+
 lang:  
-      REGEX lang 
-    | STRING lang
-    | REGEX
-    | STRING
+    REGEX lang 
+  | STRING lang
+  | REGEX
+  | STRING
 /* Here comes the syntax (here I go) */
+
 %%
+
 int main(int, char**) {
   // Open a file handle to a particular file:
   FILE *myfile = fopen("a.snazzle.file", "r");
