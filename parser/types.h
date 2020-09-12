@@ -4,28 +4,28 @@
 #include <string>
 #include <string_view>
 
-namespace noscratch {
+namespace Nosc {
 
-struct text {
-	enum class type {
-		glob  = 'g',  // Glob expression (#,*)
-		regex = 'r',  // Regular expression
-		plain,
+struct Text {
+	enum class Type {
+		Glob  = 'g',  // Glob expression (#,*)
+		Regex = 'r',  // Regular expression
+		Plain,
 	};
-	type        t;
+	Type        type;
 	std::string body;
-	static type detect_type(const std::string_view sw);
+	static Type detectType(const std::string_view sw);
 };
 
-struct indent {
-	enum class type {
-		space,
-		tab,
+struct Indent {
+	enum class Type {
+		Space,
+		Tab,
 	};
-	type   t;
+	Type   type;
 	size_t sz;
 };
 
-} // no
+} // Nosc
 
 #endif // PARSER_TYPES_H

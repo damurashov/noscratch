@@ -1,6 +1,6 @@
 #include "types.h"
 
-using namespace noscratch;
+using namespace no;
 
 text::type text::detect_type(const std::string_view sw)
 {
