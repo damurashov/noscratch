@@ -62,7 +62,7 @@
 %option noyywrap
 %option c++
 %option yyclass="Scanner"
-%option prefix=""
+%option prefix="Nosc_"
 
 NO_QUO1    [^']{-}[\\]|(\\\')|(\\\\)
 NO_QUO2    [^"]{-}[\\]|(\\\")|(\\\\)
