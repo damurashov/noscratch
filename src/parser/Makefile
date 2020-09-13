@@ -1,4 +1,4 @@
-all:
+generate:
 	flex -o scanner.cpp ./flexbison/scanner.l
 	bison -o parser.cpp ./flexbison/parser.y
 

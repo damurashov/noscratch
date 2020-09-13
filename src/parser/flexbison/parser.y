@@ -36,7 +36,7 @@
 {
 	#include <iostream>
 	#include "scanner.h"
-	#include "Parser.hpp"
+	#include "parser.hpp"
 	#include "Interpreter.hpp"
 	#include "location.hh"
 	
