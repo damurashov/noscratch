@@ -6,7 +6,7 @@
 	#include <cstring>
 	#include <initializer_list>
 	#include <memory>
-	#include "Scanner.hpp"
+	// #include "scanner.hpp"
 	#include "Interpreter.hpp"
 	#include "location.hh"
 	#include "Types.hpp"
@@ -41,7 +41,7 @@
 
 	// Original yyterminate() macro returns int. Since we're using Bison 3 variants
 	// as tokens, we must redefine it to change type from `int` to `Parser::semantic_type`
-	#define yyterminate() Nosc::Parser::make_END(Nosc::location());
+	#define yyterminate() Nosc::Parser::make_YYEOF(Nosc::location());
 
 	// This will track current scanner location.
 	// Action is called when length of the token is known.
@@ -76,8 +76,8 @@ ENDLS      \n
 
 %%
 
-#.*\n                  linenum++; print_debug("comment, line: ", linenum);
-\n                     linenum++; print_debug("line: ", linenum);
+#.*\n                  print_debug("comment");
+\n                     print_debug("line");
 ^\s+/[^[:space:]\n\r]  token(INDENT, {Nosc::Indent::Type::space, std::strlen(yytext)});
 ^\t+/[^[:space:]\n\r]  token(INDENT, {Nosc::Indent::Type::space, std::strlen(yytext)});
 fragment               token(FRAGMENT);
@@ -99,10 +99,10 @@ filter                 token(FILTER);
 #if DEBUG_FLEX == 1
 int main()
 {
-	yyscan_t scanner;
-	yylex_init(&scanner);
-	yylex(scanner);
-	yylex_destroy(scanner);
-	return 0;
+	// yyscan_t scanner;
+	// yylex_init(&scanner);
+	// yylex(scanner);
+	// yylex_destroy(scanner);
+	// return 0;
 }
 #endif  // DEBUG_FLEX == 1

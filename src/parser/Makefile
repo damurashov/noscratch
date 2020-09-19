@@ -1,4 +1,7 @@
-generate:
+all : flexbisonfiles
+	g++ -std=c++17 *.cpp
+
+flexbisonfiles:
 	flex -o scanner.cpp ./flexbison/scanner.l
 	bison -o parser.cpp ./flexbison/parser.y
 

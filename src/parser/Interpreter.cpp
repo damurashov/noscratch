@@ -10,7 +10,7 @@ Interpreter::Interpreter() :
 
 void Interpreter::set_stream(istream &s)
 {
-    m_scanner.switch_streams(s, NULL);
+    m_scanner.switch_streams(&s, nullptr);
 }
 
 void Interpreter::increase_location(unsigned loc)

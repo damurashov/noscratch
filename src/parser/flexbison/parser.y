@@ -1,8 +1,6 @@
 /* https://www.gnu.org/software/bison/manual/html_node/Calc_002b_002b-Parser.html */
 
 
-
-
 %skeleton "lalr1.cc" /* -*- C++ -*- */
 %require "3.0"
 %defines
@@ -18,6 +16,8 @@
 	#include <string>
 	#include <vector>
 	#include <stdint.h>
+
+	#include "Types.hpp"
 
 	using namespace std;
 
@@ -67,8 +67,7 @@
 
 %code{
 	#include <string>
-	#include "types.h"
-%}
+}
 
 %token <Nosc::Text>  Regex
 %token <Nosc::Indent> Indent
@@ -102,5 +101,5 @@ void Nosc::Parser::error(const location &loc , const std::string &message)
 	// Let's grab location directly from driver class.
 	// cout << "Error: " << message << endl << "Location: " << loc << endl;
 	
-	cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
+	// cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
 }
