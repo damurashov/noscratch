@@ -1,6 +1,0 @@
-#ifndef PARSER_EXECUTIONSEQUENCE_HPP
-#define PARSER_EXECUTIONSEQUENCE_HPP
-
-using ExecutionSequence = int;
-
-#endif // PARSER_EXECUTIONSEQUENCE_HPP

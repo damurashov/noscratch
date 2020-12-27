@@ -1,5 +1,5 @@
 all : flexbisonfiles
-	g++ -std=c++17 *.cpp
+	g++ -std=c++17 *.cpp *.c
 
 flexbisonfiles:
 	flex -o scanner.cpp ./flexbison/scanner.l
